@@ -1,1 +1,30 @@
-<p>menu works!</p>
+<mat-toolbar class="mat-elevation-z6" color="primary">
+  <span id="title">uHouse</span>
+  <button mat-button>
+    <mat-icon>house</mat-icon>
+    <span>List all</span>
+  </button>
+  <button mat-button (click)="showDialog()">
+    <mat-icon>add</mat-icon>
+    <span>Add listing</span>
+  </button>
+  <span class="menuright"></span>
+  <button mat-button [matMenuTriggerFor]="belowMenu">
+    <span>Username</span>
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #belowMenu="matMenu" yPosition="below">
+    <button mat-menu-item>
+      <mat-icon>person</mat-icon>
+      <span>Profile</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>settings</mat-icon>
+      <span>Settings</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>arrow_back</mat-icon>
+      <span>Log out</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

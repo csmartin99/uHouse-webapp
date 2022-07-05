@@ -1,1 +1,25 @@
-<p>reg works!</p>
+<div class="centered">
+  <mat-card class="reg">
+    <form>
+    <h2>Register</h2>
+    <mat-form-field class="max-width">
+      <mat-label>Username</mat-label>
+      <input matInput type="text" name="username" placeholder="Your username" required>
+    </mat-form-field>
+    <mat-form-field class="max-width">
+      <mat-label>Email address</mat-label>
+      <input matInput type="email" name="email" placeholder="Your email address" required>
+    </mat-form-field>
+    <mat-form-field class="max-width">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" name="pw" placeholder="Your password" required>
+    </mat-form-field>
+    <mat-form-field class="max-width">
+      <mat-label>Password again</mat-label>
+      <input matInput type="password" name="pwagain" placeholder="Your password again" required>
+    </mat-form-field>
+    <div><button mat-button>Login</button></div>
+    <div><button mat-raised-button color="primary">Register</button></div>
+  </form>
+  </mat-card>
+</div>

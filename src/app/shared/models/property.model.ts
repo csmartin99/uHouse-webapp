@@ -1,7 +1,10 @@
 export interface Property {
-  id: number;
+  id: string;
   name: string;
   price: number;
   picture: string;
+  address?: string;
+  area?: string;
+  rooms?: string;
   premium: number;
 }

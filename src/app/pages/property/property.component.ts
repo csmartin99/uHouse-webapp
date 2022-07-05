@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-export interface Property {
-  name: string;
-  size: number;
-  address: string;
-}
-
 @Component({
   selector: 'app-property',
   templateUrl: './property.component.html',

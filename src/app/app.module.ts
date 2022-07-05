@@ -4,6 +4,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PropertyModule } from './pages/property/property.module';
 import { HomeModule } from './pages/home/home.module';
+import { AngularFireModule} from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { environment } from 'src/environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -14,6 +19,9 @@ import { HomeModule } from './pages/home/home.module';
     BrowserAnimationsModule,
     HomeModule,
     PropertyModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
