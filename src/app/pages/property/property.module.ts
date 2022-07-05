@@ -6,8 +6,7 @@ import { PropertyComponent } from './property.component';
 @NgModule({
   declarations: [PropertyComponent],
   imports: [
-    CommonModule,
-    MatCardModule
+    CommonModule
   ],
   exports: [PropertyComponent]
 })
