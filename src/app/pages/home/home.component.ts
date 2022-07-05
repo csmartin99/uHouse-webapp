@@ -28,5 +28,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   getData(): void {
     this.properties = this.service.get("properties");
+    //this.properties = this.service.queryDescByPrice("properties");
   }
 }
