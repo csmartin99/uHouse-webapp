@@ -4,6 +4,9 @@ import { RegComponent } from './reg.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { RegRoutingModule } from './reg-routing.module';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -14,6 +17,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
-  ], exports: [RegComponent]
+    MatInputModule,
+    RegRoutingModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
+  ]
 })
 export class RegModule { }

@@ -7,6 +7,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddModule } from '../add/add.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -21,7 +22,8 @@ import { AddModule } from '../add/add.module';
     MatIconModule,
     MatMenuModule,
     MatDialogModule,
-    AddModule
+    AddModule,
+    RouterModule
   ], exports: [MenuComponent]
 })
 export class MenuModule { }

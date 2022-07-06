@@ -6,5 +6,5 @@ export interface Property {
   address?: string;
   area?: string;
   rooms?: string;
-  premium: number;
+  premium: string;
 }

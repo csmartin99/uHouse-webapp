@@ -1,21 +1,2 @@
-<!-- <span class="container">
-  <input type="text" [(ngModel)]="selltype">
-</span> -->
-
-<span [ngSwitch]="view">
-  <span *ngSwitchCase="'home'">
-    <app-menu [menuoptions]="menuoptions"></app-menu>
-    <app-startscreen></app-startscreen>
-    <span [ngSwitch]="selltype">
-      <span *ngSwitchCase="'forsale'" class="container"><app-card *ngFor="let property of properties | async;" [property]="property" ng-class="mat-elevation-z6" ng-mouseenter="mat-elevation-z6 = true" ng-mouseleave="mat-elevation-z6 = false"></app-card></span>
-      <span *ngSwitchCase="'torent'" class="container"><app-card *ngFor="let property of properties | async;" [property]="property" ng-class="mat-elevation-z6" ng-mouseenter="mat-elevation-z6 = true" ng-mouseleave="mat-elevation-z6 = false"></app-card></span>
-      <span *ngSwitchDefault><app-startscreen></app-startscreen></span>
-    </span>
-  </span>
-  <span *ngSwitchCase="'reg'"><app-reg></app-reg></span>
-  <span *ngSwitchCase="'log'"><app-log></app-log></span>
-  <span *ngSwitchCase="'full'">
-    <app-full></app-full>
-  </span>
-  <span *ngSwitchDefault><app-startscreen></app-startscreen></span>
-</span>
+<app-menu></app-menu>
+<router-outlet></router-outlet>

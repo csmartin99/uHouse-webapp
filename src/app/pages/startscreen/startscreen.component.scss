@@ -3,6 +3,8 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
+  margin: auto;
+  width: 50%;
 }
 
 mat-card {
@@ -13,9 +15,9 @@ mat-card {
   align-items: center;
   display: flex;
   flex: 1;
-  width: 250px;
-  height: 250px;
   margin: 10px;
+  margin-top: 50px;
+  height: 60px;
 }
 
 h1 {

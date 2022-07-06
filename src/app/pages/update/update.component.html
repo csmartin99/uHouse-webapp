@@ -1,0 +1,35 @@
+<form [formGroup]="form">
+    <h3>Update listing</h3>
+    <mat-form-field class="max-width">
+      <mat-label>Property name</mat-label>
+        <input matInput placeholder="Property name" formControlName="name" focus required>
+    </mat-form-field>
+    <mat-form-field class="max-width">
+      <mat-label>Price</mat-label>
+        <input matInput placeholder="Price" formControlName="price">
+    </mat-form-field>
+    <mat-form-field class="max-width">
+      <mat-label>Picture url</mat-label>
+        <input matInput placeholder="Picture url" formControlName="picture">
+    </mat-form-field>
+    <mat-form-field class="max-width">
+      <mat-label>Property address</mat-label>
+        <input matInput placeholder="Property address" formControlName="address">
+    </mat-form-field>
+    <mat-form-field class="max-width">
+      <mat-label>Property area</mat-label>
+        <input matInput placeholder="Property area" formControlName="area">
+    </mat-form-field>
+    <mat-form-field class="max-width">
+      <mat-label>Number of rooms</mat-label>
+        <input matInput placeholder="2" formControlName="rooms">
+    </mat-form-field>
+    <mat-form-field class="max-width">
+      <mat-label>Premium</mat-label>
+        <input matInput placeholder="Yes/No" formControlName="premium">
+    </mat-form-field>
+    <div class="updatebtn">
+      <button mat-button (click)="dialogRef.close()">Back</button>
+      <button mat-button [mat-dialog-close]="form.value" [disabled]="form.invalid">Update</button>
+    </div>
+  </form>

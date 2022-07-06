@@ -1,0 +1,6 @@
+<div>
+    <span class="container">
+        <app-card *ngFor="let property of properties | async;" [property]="property" ng-class="mat-elevation-z6" 
+        ng-mouseenter="mat-elevation-z6 = true" ng-mouseleave="mat-elevation-z6 = false"></app-card>
+    </span>
+</div>

@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  } from '@angular/core';
 
 @Component({
   selector: 'app-startscreen',
   templateUrl: './startscreen.component.html',
   styleUrls: ['./startscreen.component.scss']
 })
-export class StartscreenComponent implements OnInit {
+export class StartscreenComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

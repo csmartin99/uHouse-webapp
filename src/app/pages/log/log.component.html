@@ -1,18 +1,18 @@
 <div class="centered">
   <mat-card class="log">
-    <form>
+    <form [formGroup]="form" (ngSubmit)="login()">
     <h2>Login</h2>
     <br>
     <mat-form-field class="max-width">
-      <mat-label>Username</mat-label>
-      <input matInput type="text" name="username" placeholder="Your username" required>
+      <mat-label>Email</mat-label>
+      <input matInput type="email" name="email" placeholder="Your email" formControlName="email" required>
     </mat-form-field>
     <mat-form-field class="max-width">
       <mat-label>Password</mat-label>
-      <input matInput type="password" name="pw" placeholder="Your password" required>
+      <input matInput type="password" name="pw" placeholder="Your password" formControlName="pw" required>
     </mat-form-field>
-    <div><button mat-button>Register</button></div>
-    <div><button mat-raised-button color="primary">Login</button></div>
+    <div><button mat-button [routerLink]="['/reg']">Register</button></div>
+    <div><button type="submit" mat-raised-button color="primary" (click)="login()" [disabled]="form.invalid">Login</button></div>
   </form>
   </mat-card>
 </div>
