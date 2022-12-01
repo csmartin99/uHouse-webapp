@@ -5,6 +5,7 @@ import { FullRoutingModule } from './full-routing.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { UpdateModule } from '../update/update.module';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 
@@ -17,7 +18,8 @@ import { UpdateModule } from '../update/update.module';
     FullRoutingModule,
     MatCardModule,
     MatButtonModule,
-    UpdateModule  
+    UpdateModule,
+    GoogleMapsModule,
   ], exports: [FullComponent]
 })
 export class FullModule { }

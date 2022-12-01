@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -8,14 +8,14 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./update.component.scss']
 })
 export class UpdateComponent implements OnInit {
-  form: FormGroup = new FormGroup({
-    name: new FormControl('', Validators.required),
-    price: new FormControl(0),
-    picture:  new FormControl(''),
-    address: new FormControl(''),
-    area: new FormControl(''),
-    rooms: new FormControl(''),
-    premium: new FormControl(''),
+  form: UntypedFormGroup = new UntypedFormGroup({
+    name: new UntypedFormControl('', Validators.required),
+    price: new UntypedFormControl(0),
+    picture:  new UntypedFormControl(''),
+    address: new UntypedFormControl(''),
+    area: new UntypedFormControl(''),
+    rooms: new UntypedFormControl(''),
+    premium: new UntypedFormControl(''),
   });
 
   constructor(public dialogRef: MatDialogRef<UpdateComponent>) { }

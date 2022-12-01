@@ -5,6 +5,13 @@
 <p>Location: {{p.address}}</p>
 <p>Area: {{p.area}} m²</p>
 <p>Number of rooms: {{p.rooms}}</p>
+<google-map
+    height="500px"
+    width="100%"
+    [options]="options">
+    <map-marker>
+  </map-marker>
+</google-map>
 <button mat-button (click)="updateListing()">Update listing</button>
 <button mat-button [routerLink]="['/home/property']" (click)="deleteListing(p.id)">Delete listing</button>
 <button mat-button [routerLink]="['/home/property']">Back</button>
