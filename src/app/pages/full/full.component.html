@@ -5,13 +5,8 @@
 <p>Location: {{p.address}}</p>
 <p>Area: {{p.area}} m²</p>
 <p>Number of rooms: {{p.rooms}}</p>
-<google-map
-    height="500px"
-    width="100%"
-    [options]="options">
-    <map-marker>
-  </map-marker>
-</google-map>
+<div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=hu&amp;q=Cegled&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+    </iframe></div><style>.mapouter{position:relative;text-align:right;width:600px;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:600px;height:400px;}.gmap_iframe {width:600px!important;height:400px!important;}</style></div>
 <button mat-button (click)="updateListing()">Update listing</button>
 <button mat-button [routerLink]="['/home/property']" (click)="deleteListing(p.id)">Delete listing</button>
 <button mat-button [routerLink]="['/home/property']">Back</button>

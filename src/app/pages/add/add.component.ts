@@ -17,6 +17,7 @@ export class AddComponent implements OnInit {
     area: new UntypedFormControl(''),
     rooms: new UntypedFormControl(''),
     premium: new UntypedFormControl(''),
+    googlemapssrc: new UntypedFormControl(''),
   });
 
   constructor(public dialogRef: MatDialogRef<AddComponent>) { }

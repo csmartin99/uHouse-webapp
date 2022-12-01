@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FbCrudService } from 'src/app/services/fb-crud.service';
 import { Property } from 'src/app/shared/models/property.model';
+import { PropertyComponent } from '../property/property.component';
 import { UpdateComponent } from '../update/update.component';
 
 @Component({
@@ -21,7 +22,7 @@ export class FullComponent implements OnInit {
   markeroptions: google.maps.MarkerOptions = {
     label: "cim"
   };
-  address = "Tolarbag Mosque Road, Dhaka, Dhaka Division, Bangladesh";
+  srcaddress = "";
 
   constructor(private fs: FbCrudService, private aroute: ActivatedRoute, private dialog: MatDialog) { }
 

@@ -1,3 +1,5 @@
+import { SafeResourceUrl } from "@angular/platform-browser";
+
 export interface Property {
   id: string;
   name: string;
@@ -7,4 +9,5 @@ export interface Property {
   area?: string;
   rooms?: string;
   premium: string;
+  googlemapssrc?: SafeResourceUrl;
 }
