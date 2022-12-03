@@ -1,6 +1,25 @@
 <div>
+    <span>Település</span>
+    <input type="text" [(ngModel)]="scity" (ngModelChange)="searchCityChanged($event)" placeholder="Keress egy településre">
+    <br>
+    <span>Név</span>
+    <input type="text" [(ngModel)]="stext" (ngModelChange)="searchTextChanged($event)" placeholder="Keress a hirdetés nevére">
+    <br>
+    <span>Ár</span>
+    <input type="text" [(ngModel)]="sprice1" (ngModelChange)="searchPrice1Changed($event)" placeholder="Alsó összeg">
+    <span>-</span>
+    <input type="text" [(ngModel)]="sprice2" (ngModelChange)="searchPrice2Changed($event)" placeholder="Felső összeg">
+    <br>
+    <span>Terület</span>
+    <input type="text" [(ngModel)]="sarea1" (ngModelChange)="searchArea1Changed($event)" placeholder="Alsó terület négyzetméterben">
+    <span>-</span>
+    <input type="text" [(ngModel)]="sarea2" (ngModelChange)="searchArea2Changed($event)" placeholder="Felső terület négyzetméterben">
+    <br>
+    <span>Prémium hirdetés</span>
+    <input type="checkbox" [(ngModel)]="spremium" (ngModelChange)="searchPremiumChanged($event)">
+    <br>
     <span class="container">
-        <app-card *ngFor="let property of properties | async;" [property]="property" ng-class="mat-elevation-z6" 
+        <app-card *ngFor="let property of properties | async" [property]="property" ng-class="mat-elevation-z6" 
         ng-mouseenter="mat-elevation-z6 = true" ng-mouseleave="mat-elevation-z6 = false"></app-card>
     </span>
 </div>

@@ -1,7 +1,11 @@
 <mat-card *ngIf="property | async as p">
 <p>{{p.name}}</p>
 <p>Price: {{p.price}} $</p>
-<img mat-card-image [src]="p.picture" [alt]="p.name" [title]="p.name">
+<lightgallery>
+    <a href="p.picture">
+        <img mat-card-image [alt]="p.name" [src]="p.picture" [title]="p.name"/>
+    </a>
+</lightgallery>
 <p>Location: {{p.address}}</p>
 <p>Area: {{p.area}} m²</p>
 <p>Number of rooms: {{p.rooms}}</p>

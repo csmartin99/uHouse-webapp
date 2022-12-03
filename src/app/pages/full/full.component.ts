@@ -15,13 +15,13 @@ import { UpdateComponent } from '../update/update.component';
 export class FullComponent implements OnInit {
   property: Observable<Property> | null=null;
   id = "";
-  options: google.maps.MapOptions = {
+  /*options: google.maps.MapOptions = {
     center: {lat: 40, lng: -20},
     zoom: 4
   };
   markeroptions: google.maps.MarkerOptions = {
     label: "cim"
-  };
+  };*/
   srcaddress = "";
 
   constructor(private fs: FbCrudService, private aroute: ActivatedRoute, private dialog: MatDialog) { }

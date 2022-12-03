@@ -9,5 +9,5 @@ export interface Property {
   area?: string;
   rooms?: string;
   premium: string;
-  googlemapssrc?: SafeResourceUrl;
+  temp?: string;
 }

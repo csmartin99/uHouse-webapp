@@ -10,7 +10,7 @@
   </mat-form-field>
   <mat-form-field class="max-width">
     <mat-label>Picture url</mat-label>
-      <input matInput placeholder="Picture url" formControlName="picture">
+    <input matInput placeholder="Picture url" formControlName="picture">
   </mat-form-field>
   <mat-form-field class="max-width">
     <mat-label>Property address</mat-label>
@@ -29,9 +29,9 @@
       <input matInput placeholder="Yes/No" formControlName="premium">
   </mat-form-field>
   <mat-form-field class="max-width">
-    <mat-label>GoogleMapsSrc</mat-label>
-      <input matInput placeholder="ch" formControlName="googlemapssrc">
+      <input matInput placeholder="Yes/No" formControlName="premium">
   </mat-form-field>
+  <h4 *ngIf="useremail == null">Figyelem! A hirdetése bejelentkezés nélkül ideiglenes lesz, 1 hét után automatikusan törlődik!</h4>
   <div class="addbtn">
     <button mat-button (click)="dialogRef.close()">Back</button>
     <button mat-button [mat-dialog-close]="form.value" [disabled]="form.invalid">Add</button>

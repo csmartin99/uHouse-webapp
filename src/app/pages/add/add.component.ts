@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-add',
@@ -8,6 +9,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./add.component.scss']
 })
 export class AddComponent implements OnInit {
+  useremail: string | any;
   form: UntypedFormGroup = new UntypedFormGroup({
     id: new UntypedFormControl(''),
     name: new UntypedFormControl('', Validators.required),
@@ -17,10 +19,13 @@ export class AddComponent implements OnInit {
     area: new UntypedFormControl(''),
     rooms: new UntypedFormControl(''),
     premium: new UntypedFormControl(''),
-    googlemapssrc: new UntypedFormControl(''),
+    temp: new UntypedFormControl('')
   });
 
-  constructor(public dialogRef: MatDialogRef<AddComponent>) { }
+  constructor(public dialogRef: MatDialogRef<AddComponent>, private authentication: AuthenticationService) {
+    //console.log(this.authentication.userData)
+    this.useremail = this.authentication.userData;
+  }
 
   ngOnInit(): void {
   }
