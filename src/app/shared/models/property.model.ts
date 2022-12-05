@@ -1,4 +1,5 @@
 import { SafeResourceUrl } from "@angular/platform-browser";
+import { Timestamp } from "rxjs";
 
 export interface Property {
   id: string;
@@ -10,4 +11,7 @@ export interface Property {
   rooms?: string;
   premium: string;
   temp?: string;
+  created?: number;
+  seller?: string;
+  hidden?: string;
 }

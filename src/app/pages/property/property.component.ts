@@ -31,7 +31,7 @@ export class PropertyComponent implements OnInit {
   }
 
   getProperties(): void {
-    this.properties = this.fs.get("properties");
+    this.properties = this.fs.get("properties").pipe(map(props => props.filter(prop => prop.hidden != "1")));
   }
 
   searchTextChanged(stext: string) {

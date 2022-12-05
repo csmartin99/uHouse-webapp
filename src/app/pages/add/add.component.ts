@@ -18,8 +18,7 @@ export class AddComponent implements OnInit {
     address: new UntypedFormControl(''),
     area: new UntypedFormControl(''),
     rooms: new UntypedFormControl(''),
-    premium: new UntypedFormControl(''),
-    temp: new UntypedFormControl('')
+    premium: new UntypedFormControl('')
   });
 
   constructor(public dialogRef: MatDialogRef<AddComponent>, private authentication: AuthenticationService) {

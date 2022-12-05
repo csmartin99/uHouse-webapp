@@ -13,5 +13,7 @@
     </iframe></div><style>.mapouter{position:relative;text-align:right;width:600px;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:600px;height:400px;}.gmap_iframe {width:600px!important;height:400px!important;}</style></div>
 <button mat-button (click)="updateListing()">Update listing</button>
 <button mat-button [routerLink]="['/home/property']" (click)="deleteListing(p.id)">Delete listing</button>
+<button *ngIf="p.hidden != '1'"mat-button (click)="hideListing(p.id)">Hirdetés elrejtése</button>
+<button *ngIf="p.hidden == '1'"mat-button (click)="activateListing(p.id)">Hirdetés aktiválása</button>
 <button mat-button [routerLink]="['/home/property']">Back</button>
 </mat-card>

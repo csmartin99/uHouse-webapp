@@ -37,6 +37,10 @@ const routes: Routes = [
         loadChildren: () => import('./pages/full/full.module').then(m => m.FullModule)
     },
     {
+        path: 'myads',
+        loadChildren: () => import('./pages/myads/myads.module').then(m => m.MyadsModule)
+    },
+    {
         path: '**',
         redirectTo: 'home',
         pathMatch: 'full'

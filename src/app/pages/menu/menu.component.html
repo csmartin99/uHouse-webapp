@@ -18,9 +18,9 @@
       <mat-icon>person</mat-icon>
       <span>Profile</span>
     </button>
-    <button mat-menu-item>
-      <mat-icon>settings</mat-icon>
-      <span>Settings</span>
+    <button mat-menu-item [routerLink]="[ '/home/myads']">
+      <mat-icon>list</mat-icon>
+      <span>Hirdetéseim</span>
     </button>
     <button mat-menu-item (click)="logout()">
       <mat-icon>arrow_back</mat-icon>

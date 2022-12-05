@@ -14,14 +14,8 @@ import { UpdateComponent } from '../update/update.component';
 })
 export class FullComponent implements OnInit {
   property: Observable<Property> | null=null;
+  propertyHide: Observable<Property[]> | any;
   id = "";
-  /*options: google.maps.MapOptions = {
-    center: {lat: 40, lng: -20},
-    zoom: 4
-  };
-  markeroptions: google.maps.MarkerOptions = {
-    label: "cim"
-  };*/
   srcaddress = "";
 
   constructor(private fs: FbCrudService, private aroute: ActivatedRoute, private dialog: MatDialog) { }
@@ -46,6 +40,30 @@ export class FullComponent implements OnInit {
     dialogR.afterClosed().subscribe(result => {
       if (result) {
         this.fs.update('properties', this.id, result);} });
+  }
+
+  hideListing(paramid: string): void {
+    this.propertyHide = this.fs.getOne('properties', paramid);
+    console.log(this.propertyHide);
+    /*subscribe(result => {
+      if (result) {
+      result.hidden = "1";
+      this.fs.update('properties', paramid, result);}
+    });*/
+  }
+
+  activateListing(paramid: string): void {
+    /*this.propertyHide = this.fs.getOne('properties', paramid).pipe().subscribe(result => {
+      if (result) {
+      result.hidden = "0";
+      this.fs.update('properties', paramid, result);}
+    });*/
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    
   }
 
 }

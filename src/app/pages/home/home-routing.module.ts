@@ -15,6 +15,10 @@ const routes: Routes = [
             {
                 path: 'property',
                 loadChildren: () => import('./../property/property.module').then(m => m.PropertyModule)
+            },
+            {
+                path: 'myads',
+                loadChildren: () => import('./../myads/myads.module').then(m => m.MyadsModule)
             }
         ]
     },

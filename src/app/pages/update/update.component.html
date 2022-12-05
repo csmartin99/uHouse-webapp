@@ -28,10 +28,6 @@
       <mat-label>Premium</mat-label>
         <input matInput placeholder="Yes/No" formControlName="premium">
     </mat-form-field>
-    <mat-form-field class="max-width">
-      <mat-label>GoogleMapsSrc</mat-label>
-        <input matInput placeholder="ch" formControlName="googlemapssrc">
-    </mat-form-field>
     <div class="updatebtn">
       <button mat-button (click)="dialogRef.close()">Back</button>
       <button mat-button [mat-dialog-close]="form.value" [disabled]="form.invalid">Update</button>
