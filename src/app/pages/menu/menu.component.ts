@@ -43,7 +43,7 @@ export class MenuComponent {
       if (result) {
         if (this.authentication.isAuthenticated) {
           result.temp = "0";
-          result.seller = this.authentication.currentUserId;
+          result.seller = this.authentication.userData;
         } else if (!this.authentication.isAuthenticated) {
           result.temp = "1";
         }

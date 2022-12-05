@@ -2,11 +2,11 @@
   <span id="title" [routerLink]="[ '/home/startscreen']">uHouse</span>
   <button mat-button [routerLink]="[ '/home/property']">
     <mat-icon>house</mat-icon>
-    <span>List all</span>
+    <span>Hirdetések</span>
   </button>
   <button mat-button (click)="showDialog()">
     <mat-icon>add</mat-icon>
-    <span>Add listing</span>
+    <span>Hirdetés hozzáadása</span>
   </button>
   <span class="menuright"></span>
   <button mat-button [matMenuTriggerFor]="belowMenu">
@@ -14,21 +14,21 @@
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #belowMenu="matMenu" yPosition="below">
-    <button mat-menu-item>
+    <button mat-menu-item [routerLink]="[ '/home/profile']">
       <mat-icon>person</mat-icon>
-      <span>Profile</span>
+      <span>Profil</span>
     </button>
     <button mat-menu-item [routerLink]="[ '/home/myads']">
       <mat-icon>list</mat-icon>
       <span>Hirdetéseim</span>
     </button>
-    <button mat-menu-item [routerLink]="[ '/home/myads']">
+    <button mat-menu-item [routerLink]="[ '/home/savedads']">
       <mat-icon>folder</mat-icon>
       <span>Mentett hirdetések</span>
     </button>
     <button mat-menu-item (click)="logout()">
       <mat-icon>arrow_back</mat-icon>
-      <span>Log out</span>
+      <span>Kijelentkezés</span>
     </button>
   </mat-menu>
 </mat-toolbar>

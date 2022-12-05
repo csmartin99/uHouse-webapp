@@ -41,6 +41,10 @@ const routes: Routes = [
         loadChildren: () => import('./pages/myads/myads.module').then(m => m.MyadsModule)
     },
     {
+        path: 'savedads',
+        loadChildren: () => import('./pages/savedads/savedads.module').then(m => m.SavedadsModule)
+    },
+    {
         path: '**',
         redirectTo: 'home',
         pathMatch: 'full'

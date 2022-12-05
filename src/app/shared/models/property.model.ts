@@ -1,6 +1,3 @@
-import { SafeResourceUrl } from "@angular/platform-browser";
-import { Timestamp } from "rxjs";
-
 export interface Property {
   id: string;
   name: string;

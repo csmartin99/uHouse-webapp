@@ -1,1 +1,22 @@
-<p>savedads works!</p>
+<div>
+    <table border="1">
+        <tr>
+            <th>Hirdetés</th>
+            <th>Cím</th>
+            <th>Ár</th>
+            <th>Terület</th>
+            <th>Szobák (db)</th>
+            <th>Lértehozva</th>
+        </tr>
+        <tr *ngFor="let property of properties | async">
+            <td>{{property.name}}</td>
+            <td>{{property.address}}</td>
+            <td>{{property.price}}</td>
+            <td>{{property.area}}</td>
+            <td>{{property.rooms}}</td>
+            <td>{{property.created | date:'yyyy/MM/dd'}}</td>
+            <td><button mat-button [routerLink]="['/full/' + property.id]">Megtekintés</button></td>
+            <td><button mat-button (click)="unsaveListing(property.id)">Mentés visszavonása</button></td>
+        </tr>
+    </table>
+</div>

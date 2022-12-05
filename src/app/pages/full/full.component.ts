@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { FbCrudService } from 'src/app/services/fb-crud.service';
 import { Property } from 'src/app/shared/models/property.model';
+import { Savedad } from 'src/app/shared/models/savedads.model';
 import { PropertyComponent } from '../property/property.component';
 import { UpdateComponent } from '../update/update.component';
 
@@ -17,8 +19,9 @@ export class FullComponent implements OnInit {
   propertyHide: Observable<Property[]> | any;
   id = "";
   srcaddress = "";
+  seller = "";
 
-  constructor(private fs: FbCrudService, private aroute: ActivatedRoute, private dialog: MatDialog) { }
+  constructor(private fs: FbCrudService, private aroute: ActivatedRoute, private dialog: MatDialog, private authentication: AuthenticationService) { }
 
   ngOnInit(): void {
     var p = this.aroute.snapshot.params;
@@ -40,6 +43,15 @@ export class FullComponent implements OnInit {
     dialogR.afterClosed().subscribe(result => {
       if (result) {
         this.fs.update('properties', this.id, result);} });
+  }
+
+  saveListing(paramid: string): void {
+    const savedad: Savedad = {
+      id: "",
+      userid: this.authentication.currentUserId,
+      adid: paramid
+    };
+    this.fs.addSaved("savedads", savedad);
   }
 
   hideListing(paramid: string): void {

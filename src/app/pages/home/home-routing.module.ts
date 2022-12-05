@@ -19,6 +19,14 @@ const routes: Routes = [
             {
                 path: 'myads',
                 loadChildren: () => import('./../myads/myads.module').then(m => m.MyadsModule)
+            },
+            {
+                path: 'savedads',
+                loadChildren: () => import('../savedads/savedads.module').then(m => m.SavedadsModule)
+            },
+            {
+                path: 'profile',
+                loadChildren: () => import('./../profile/profile.module').then(m => m.ProfileModule)
             }
         ]
     },

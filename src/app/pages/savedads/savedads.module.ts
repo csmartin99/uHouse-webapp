@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SavedadsComponent } from './savedads.component';
+import { SavedadsRoutingModule } from './savedads-routing.module';
 
 
 
@@ -9,7 +10,8 @@ import { SavedadsComponent } from './savedads.component';
     SavedadsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SavedadsRoutingModule
   ], exports: [SavedadsComponent]
 })
 export class SavedadsModule { }
