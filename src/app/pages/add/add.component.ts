@@ -9,7 +9,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./add.component.scss']
 })
 export class AddComponent implements OnInit {
-  useremail: string | any;
+  userid: string | any;
   form: UntypedFormGroup = new UntypedFormGroup({
     id: new UntypedFormControl(''),
     name: new UntypedFormControl('', Validators.required),
@@ -23,10 +23,12 @@ export class AddComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<AddComponent>, private authentication: AuthenticationService) {
     //console.log(this.authentication.userData)
-    this.useremail = this.authentication.userData;
+    //this.useremail = this.authentication.userData;
+    this.userid = this.authentication.currentUserId;
   }
 
   ngOnInit(): void {
+    console.log(this.userid);
   }
 
   /*close(): void {

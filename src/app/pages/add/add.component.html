@@ -31,7 +31,7 @@
   <mat-form-field class="max-width">
       <input matInput placeholder="Yes/No" formControlName="premium">
   </mat-form-field>
-  <h4 *ngIf="useremail == null">Figyelem! A hirdetése bejelentkezés nélkül ideiglenes lesz, 1 hét után automatikusan törlődik!</h4>
+  <h4 *ngIf="userid == null">Figyelem! A hirdetése bejelentkezés nélkül ideiglenes lesz, 1 hét után automatikusan törlődik!</h4>
   <div class="addbtn">
     <button mat-button (click)="dialogRef.close()">Back</button>
     <button mat-button [mat-dialog-close]="form.value" [disabled]="form.invalid">Add</button>

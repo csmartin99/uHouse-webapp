@@ -22,6 +22,10 @@
       <mat-icon>list</mat-icon>
       <span>Hirdetéseim</span>
     </button>
+    <button mat-menu-item [routerLink]="[ '/home/myads']">
+      <mat-icon>folder</mat-icon>
+      <span>Mentett hirdetések</span>
+    </button>
     <button mat-menu-item (click)="logout()">
       <mat-icon>arrow_back</mat-icon>
       <span>Log out</span>

@@ -19,10 +19,10 @@ export class MenuComponent {
   deletableProperties: Observable<Property[]> | any;
   getnow: Number | any;
   tenminutes: Number | any;
-  //isAuthenticated: boolean | undefined;
+  userid: string | any;
   useremail: string | any;
   constructor(private dialog: MatDialog, private fs: FbCrudService, private router: Router, private authentication: AuthenticationService) {
-    //console.log(this.authentication.userData)
+    this.userid = this.authentication.currentUserId;
     this.useremail = this.authentication.userData;
   }
 
@@ -40,13 +40,13 @@ export class MenuComponent {
   showDialog(): void{
     const dialogR = this.dialog.open(AddComponent, {});
     dialogR.afterClosed().subscribe(result => {
-      if (this.useremail == null) {
-        result.temp = "1";
-      } else {
-        result.temp = "0";
-        result.seller = this.authentication.currentUserId;
-      }
       if (result) {
+        if (this.authentication.isAuthenticated) {
+          result.temp = "0";
+          result.seller = this.authentication.currentUserId;
+        } else if (!this.authentication.isAuthenticated) {
+          result.temp = "1";
+        }
         result.created = Date.now();
         result.hidden = "0";
         this.fs.add("properties", result);} });
@@ -54,7 +54,9 @@ export class MenuComponent {
 
   ngOnInit(): void {
     this.getnow = Date.now();
-    this.tenminutes = Date()
+    this.useremail = this.authentication.userData;
+    this.userid = this.authentication.currentUserId;
+    console.log(this.userid);
     //Törli a (jelenleg 10 percél) régebbi ideiglenes hirdetéseket (600000 ms)
     this.deletableProperties = this.fs.get("properties").pipe(map(props => props.filter(prop => (prop.temp == "1" && (prop.created!+600000) < this.getnow))))
     .subscribe(result => {if (result) {

@@ -43,13 +43,17 @@ export class FullComponent implements OnInit {
   }
 
   hideListing(paramid: string): void {
-    this.propertyHide = this.fs.getOne('properties', paramid);
-    console.log(this.propertyHide);
-    /*subscribe(result => {
+    this.propertyHide = this.fs.getOne('properties', paramid).
+    subscribe(result => {
+      console.log(result);
       if (result) {
-      result.hidden = "1";
-      this.fs.update('properties', paramid, result);}
-    });*/
+        result.hidden = "1";
+        //this.fs.update('properties', paramid, result);
+      }
+      //if (result) {
+      //result.hidden = "1";
+      //this.fs.update('properties', paramid, result);}
+    });
   }
 
   activateListing(paramid: string): void {
