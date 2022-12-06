@@ -1,17 +1,19 @@
-<p>profile works!</p>
-<p>profile works!</p>
-<p>profile works!</p>
-<p>profile works!</p>
-<p>profile works!</p>
-<p>profile works!</p>
-<p>profile works!</p>
-<p>profile works!</p>
-<p>profile works!</p>
-<p>profile works!</p>
-<p>profile works!</p>
-<p>profile works!</p>
-<p>profile works!</p>
-<p>profile works!</p>
-<p>profile works!</p>
-<p>profile works!</p>
-<p>profile works!</p>
+<mat-card *ngFor="let u of users | async">
+    <p>Felhasználónév: {{u.username}}</p>
+    <p>Elérhetőség: {{u.useremail}}</p>
+    <button [disabled]="!auth" mat-button (click)="addLike(u.id,u.like)"><mat-icon>thumb_up</mat-icon> {{u.like}}</button>
+    <button [disabled]="!auth" mat-button (click)="addDislike(u.id,u.dislike)"><mat-icon>thumb_down</mat-icon> {{u.dislike}}</button>
+    <button [disabled]="!auth" mat-button (click)="addReport(u.id,u.report)"><mat-icon>report</mat-icon> {{u.report}}</button>
+    <button mat-button (click)="getUsersProperties(u.useremail)">Felhasználó hirdetései</button>
+            <form [formGroup]="form" (ngSubmit)="addComment(u.id)">
+            <mat-form-field>
+                <input matInput type="text" placeholder="Megjegyzés" formControlName="comment">
+            </mat-form-field>
+            <div><button mat-raised-button color="primary">Komment</button></div>
+            </form>
+    <p *ngFor="let comm of u.comments">{{comm}}</p>
+</mat-card>
+<span class="container">
+    <app-card *ngFor="let property of properties | async" [property]="property" ng-class="mat-elevation-z6" 
+    ng-mouseenter="mat-elevation-z6 = true" ng-mouseleave="mat-elevation-z6 = false"></app-card>
+</span>

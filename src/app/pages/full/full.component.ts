@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { FbCrudService } from 'src/app/services/fb-crud.service';
 import { Property } from 'src/app/shared/models/property.model';
 import { Savedad } from 'src/app/shared/models/savedads.model';
+import { User } from 'src/app/shared/models/user.model';
 import { PropertyComponent } from '../property/property.component';
 import { UpdateComponent } from '../update/update.component';
 
@@ -15,11 +16,16 @@ import { UpdateComponent } from '../update/update.component';
   styleUrls: ['./full.component.scss']
 })
 export class FullComponent implements OnInit {
-  property: Observable<Property> | null=null;
+  property: Observable<Property> | null=null; 
+   
+  propertyTemp: Observable<Property[]> | any;
+  sellerDataTemp: Observable<User[]> | any;
   propertyHide: Observable<Property[]> | any;
   id = "";
   srcaddress = "";
   seller = "";
+  sellerData: Observable<User> | any;
+  propertyData: Observable<User> | any;
 
   constructor(private fs: FbCrudService, private aroute: ActivatedRoute, private dialog: MatDialog, private authentication: AuthenticationService) { }
 
@@ -27,11 +33,24 @@ export class FullComponent implements OnInit {
     var p = this.aroute.snapshot.params;
     this.id = p['id'];
     this.getProperty();
+    this.getSellerUsername();
   }
 
   getProperty(): void {
     this.property = this.fs.getOne('properties', this.id);
-    console.log(this.property);
+    this.propertyTemp = this.fs.getUser('properties').pipe(map(props => props.filter(prop => prop.id == this.id))).subscribe(result => {if (result) {
+      result.forEach((doc) => {
+        this.propertyData = doc;
+      });
+    }});
+  }
+
+  getSellerUsername(): void {
+    this.sellerDataTemp = this.fs.getUser("users").pipe(map(users => users.filter(user => user.useremail == this.propertyData.seller))).subscribe(result => {if (result) {
+      result.forEach((doc) => {
+        this.sellerData = doc;
+      });
+    }});
   }
 
   deleteListing(paramid: string): void {

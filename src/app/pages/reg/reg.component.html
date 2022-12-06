@@ -4,7 +4,7 @@
     <h2>Register</h2>
     <mat-form-field class="max-width">
       <mat-label>Username</mat-label>
-      <input matInput type="text" name="username" placeholder="Your username" required>
+      <input matInput type="text" name="username" placeholder="Your username" formControlName="username" required>
     </mat-form-field>
     <mat-form-field class="max-width">
       <mat-label>Email address</mat-label>
@@ -19,7 +19,7 @@
       <input matInput type="password" name="pwagain" placeholder="Your password again" required>
     </mat-form-field>
     <div><button mat-button [routerLink]="['/log']">Login</button></div>
-    <div><button mat-raised-button color="primary" (click)="signup()" [disabled]="form.invalid">Register</button></div>
+    <div><button mat-raised-button color="primary" [disabled]="form.invalid">Register</button></div>
   </form>
   </mat-card>
 </div>

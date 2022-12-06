@@ -49,10 +49,9 @@ export class SavedadsComponent implements OnInit {
         this.fs.delete("savedads", doc.id);
       });
     }});
-    this.property = this.fs.get("properties").pipe(map(props => props.filter(prop => prop.id == null)));
     this.properties = this.fs.get("properties").pipe(map(props => props.filter(prop => prop.id == null)));
     this.propList = [];
-    this.getSavedAds();
+    //this.getSavedAds();
     /*this.propList.forEach(element => {
       this.counter = this.counter+1;
       if (element.id == this.unsavedadid) {
