@@ -1,16 +1,22 @@
-app-card {
-    min-width: 300px;
-    max-width: 300px;
-    margin: 5px;
-    flex: 1 1;
-    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+table {
+    width: 70%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 500px;
+    margin: auto;
 }
 
-.container{
-    display:flex;
-    width: 50%;
-    margin: auto;
-    padding: 10px;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+th.mat-header-cell {
+    text-align: left;
+    max-width: 300px;
+}
+
+.hide{
+    background-color: gray;
+    transition-duration: 0.2s;
+}
+
+.unhide{
+    background-color: white;
+    transition-duration: 0.2s;
 }

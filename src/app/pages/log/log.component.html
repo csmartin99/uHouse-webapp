@@ -1,18 +1,19 @@
 <div class="centered">
   <mat-card class="log">
     <form [formGroup]="form" (ngSubmit)="login()">
-    <h2>Login</h2>
+    <h2>Bejelentkezés</h2>
     <br>
     <mat-form-field class="max-width">
-      <mat-label>Email</mat-label>
-      <input matInput type="email" name="email" placeholder="Your email" formControlName="email" required>
+      <mat-label>Email cím</mat-label>
+      <input matInput type="email" name="email" placeholder="Email cím" formControlName="email" required>
     </mat-form-field>
     <mat-form-field class="max-width">
-      <mat-label>Password</mat-label>
-      <input matInput type="password" name="pw" placeholder="Your password" formControlName="pw" required>
+      <mat-label>Jelszó</mat-label>
+      <input matInput type="password" name="pw" placeholder="Jelszó" formControlName="pw" required>
     </mat-form-field>
-    <div><button mat-button [routerLink]="['/reg']">Register</button></div>
-    <div><button type="submit" mat-raised-button color="primary" (click)="login()" [disabled]="form.invalid">Login</button></div>
+    <div><button mat-button [routerLink]="['/reg']">Regisztráció</button>
+    <button type="submit" mat-raised-button color="primary" (click)="login()" [disabled]="form.invalid">Bejelentkezés</button>
+    <button mat-button [routerLink]="['/home/property']">Vissza</button></div>
   </form>
   </mat-card>
 </div>

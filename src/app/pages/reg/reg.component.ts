@@ -29,7 +29,9 @@ export class RegComponent {
         username: this.form.value.username,
         like: 0,
         dislike: 0,
-        report: 0
+        report: 0,
+        comments: [],
+        savedads: []
       };
       this.fs.addUser("users", user);
     }

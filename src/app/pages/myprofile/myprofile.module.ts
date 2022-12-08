@@ -1,25 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProfileComponent } from './profile.component';
-import { ProfileRoutingModule } from './profile-routing.module';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
+import { MyprofileComponent } from './myprofile.component';
 import { CardModule } from '../property/card/card.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
+import { MyprofileRoutingModule } from './myprofile-routing.module';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommentModule } from '../comment/comment.module';
 
 
 
 @NgModule({
   declarations: [
-    ProfileComponent
+    MyprofileComponent
   ],
   imports: [
     CommonModule,
-    ProfileRoutingModule,
+    MyprofileRoutingModule,
     MatButtonModule,
     MatCardModule,
     MatButtonModule,
@@ -30,6 +30,6 @@ import { CommentModule } from '../comment/comment.module';
     FormsModule,
     ReactiveFormsModule,
     CommentModule
-  ], exports: [ProfileComponent]
+  ], exports: [MyprofileComponent]
 })
-export class ProfileModule { }
+export class MyprofileModule { }

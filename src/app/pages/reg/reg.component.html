@@ -1,25 +1,26 @@
 <div class="centered">
   <mat-card class="reg">
     <form [formGroup]="form" (ngSubmit)="signup()">
-    <h2>Register</h2>
+    <h2>Regisztráció</h2>
     <mat-form-field class="max-width">
-      <mat-label>Username</mat-label>
-      <input matInput type="text" name="username" placeholder="Your username" formControlName="username" required>
+      <mat-label>Felhasználónév</mat-label>
+      <input matInput type="text" name="username" placeholder="Felhasználónév" formControlName="username" required>
     </mat-form-field>
     <mat-form-field class="max-width">
-      <mat-label>Email address</mat-label>
-      <input matInput type="email" name="email" placeholder="Your email address" formControlName="email" required>
+      <mat-label>Email cím</mat-label>
+      <input matInput type="email" name="email" placeholder="Email cím" formControlName="email" required>
     </mat-form-field>
     <mat-form-field class="max-width">
-      <mat-label>Password</mat-label>
-      <input matInput type="password" name="pw" placeholder="Your password" formControlName="pw" required>
+      <mat-label>Jelszó</mat-label>
+      <input matInput type="password" name="pw" placeholder="Jelszó" formControlName="pw" required>
     </mat-form-field>
     <mat-form-field class="max-width">
-      <mat-label>Password again</mat-label>
-      <input matInput type="password" name="pwagain" placeholder="Your password again" required>
+      <mat-label>Jelszó megint</mat-label>
+      <input matInput type="password" name="pwagain" placeholder="Jelszó megint" required>
     </mat-form-field>
-    <div><button mat-button [routerLink]="['/log']">Login</button></div>
-    <div><button mat-raised-button color="primary" [disabled]="form.invalid">Register</button></div>
+    <div><button mat-raised-button color="primary" [disabled]="form.invalid">Regisztráció</button>
+    <button mat-button [routerLink]="['/log']">Bejelentkezés</button>
+    <button mat-button [routerLink]="['/home/property']">Vissza</button></div>
   </form>
   </mat-card>
 </div>

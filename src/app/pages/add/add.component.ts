@@ -22,13 +22,10 @@ export class AddComponent implements OnInit {
   });
 
   constructor(public dialogRef: MatDialogRef<AddComponent>, private authentication: AuthenticationService) {
-    //console.log(this.authentication.userData)
-    //this.useremail = this.authentication.userData;
-    this.userid = this.authentication.currentUserId;
   }
 
   ngOnInit(): void {
-    console.log(this.userid);
+    this.userid = this.authentication.currentUserId;
   }
 
   /*close(): void {

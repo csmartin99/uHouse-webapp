@@ -38,7 +38,7 @@ export class MenuComponent {
   }
 
   showDialog(): void{
-    const dialogR = this.dialog.open(AddComponent, {});
+    const dialogR = this.dialog.open(AddComponent, {height:'70%',width:'40%'});
     dialogR.afterClosed().subscribe(result => {
       if (result) {
         if (this.authentication.isAuthenticated) {
@@ -46,6 +46,7 @@ export class MenuComponent {
           result.seller = this.authentication.userData;
         } else if (!this.authentication.isAuthenticated) {
           result.temp = "1";
+          result.seller = "none";
         }
         result.created = Date.now();
         result.hidden = "0";

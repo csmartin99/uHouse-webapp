@@ -28,6 +28,7 @@ export class PropertyComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProperties();
+    this.fs.delete("users", "AKubQGhhsGuuBJnOBvDx");
   }
 
   getProperties(): void {

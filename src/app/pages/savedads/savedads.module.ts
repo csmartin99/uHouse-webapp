@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SavedadsComponent } from './savedads.component';
 import { SavedadsRoutingModule } from './savedads-routing.module';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -11,7 +14,10 @@ import { SavedadsRoutingModule } from './savedads-routing.module';
   ],
   imports: [
     CommonModule,
-    SavedadsRoutingModule
+    SavedadsRoutingModule,
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule
   ], exports: [SavedadsComponent]
 })
 export class SavedadsModule { }

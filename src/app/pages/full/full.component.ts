@@ -17,27 +17,56 @@ import { UpdateComponent } from '../update/update.component';
 })
 export class FullComponent implements OnInit {
   property: Observable<Property> | null=null; 
-   
+  auth: boolean | any;
   propertyTemp: Observable<Property[]> | any;
   sellerDataTemp: Observable<User[]> | any;
   propertyHide: Observable<Property[]> | any;
   id = "";
   srcaddress = "";
+  email = "";
   seller = "";
+  userid = "";
   sellerData: Observable<User> | any;
   propertyData: Observable<User> | any;
+  propObj: Property | any;
+  userTemp: User | any;
 
-  constructor(private fs: FbCrudService, private aroute: ActivatedRoute, private dialog: MatDialog, private authentication: AuthenticationService) { }
+  constructor(private fs: FbCrudService, private aroute: ActivatedRoute, private dialog: MatDialog, private authentication: AuthenticationService) {
+   }
 
   ngOnInit(): void {
     var p = this.aroute.snapshot.params;
     this.id = p['id'];
+    this.auth = this.authentication.isAuthenticated;
+    if (this.auth) {
+      this.email = this.authentication.userData;
+      this.userid = this.authentication.currentUserId;
+    }
     this.getProperty();
     this.getSellerUsername();
+
+    this.fs.getUserByEmail("users", this.email).pipe(map(users => {
+      return users.map(u => {
+        const usr: User = {
+          id: u.id,
+          userid: u.userid,
+          useremail: u.useremail,
+          username: u.username,
+          like: u.like,
+          dislike: u.dislike,
+          report: u.report,
+          comments: u.comments,
+          savedads: u.savedads
+        }
+        return usr
+      })
+    }))
+    .subscribe(data=>this.userTemp=data);
   }
 
   getProperty(): void {
     this.property = this.fs.getOne('properties', this.id);
+
     this.propertyTemp = this.fs.getUser('properties').pipe(map(props => props.filter(prop => prop.id == this.id))).subscribe(result => {if (result) {
       result.forEach((doc) => {
         this.propertyData = doc;
@@ -48,7 +77,9 @@ export class FullComponent implements OnInit {
   getSellerUsername(): void {
     this.sellerDataTemp = this.fs.getUser("users").pipe(map(users => users.filter(user => user.useremail == this.propertyData.seller))).subscribe(result => {if (result) {
       result.forEach((doc) => {
-        this.sellerData = doc;
+        if (doc) {
+          this.sellerData = doc;
+        }
       });
     }});
   }
@@ -58,47 +89,21 @@ export class FullComponent implements OnInit {
   }
 
   updateListing(): void{
-    const dialogR = this.dialog.open(UpdateComponent, {});
+    const dialogR = this.dialog.open(UpdateComponent, {height:'70%',width:'40%'});
     dialogR.afterClosed().subscribe(result => {
       if (result) {
         this.fs.update('properties', this.id, result);} });
   }
 
-  saveListing(paramid: string): void {
-    const savedad: Savedad = {
-      id: "",
-      userid: this.authentication.currentUserId,
-      adid: paramid
-    };
-    this.fs.addSaved("savedads", savedad);
-  }
+  saveListing(adid: string): void {
+    let array: string[] = [];
 
-  hideListing(paramid: string): void {
-    this.propertyHide = this.fs.getOne('properties', paramid).
-    subscribe(result => {
-      console.log(result);
-      if (result) {
-        result.hidden = "1";
-        //this.fs.update('properties', paramid, result);
-      }
-      //if (result) {
-      //result.hidden = "1";
-      //this.fs.update('properties', paramid, result);}
+    this.userTemp[0].savedads.forEach((element: string) => {
+      array.push(element);
     });
+    if(!array.includes(adid)){
+      array.push(adid);
+    }
+    this.fs.updateSaved("users", this.userTemp[0].id, array);
   }
-
-  activateListing(paramid: string): void {
-    /*this.propertyHide = this.fs.getOne('properties', paramid).pipe().subscribe(result => {
-      if (result) {
-      result.hidden = "0";
-      this.fs.update('properties', paramid, result);}
-    });*/
-  }
-
-  ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
-    
-  }
-
 }

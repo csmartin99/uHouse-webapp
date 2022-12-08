@@ -1,11 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { map, Observable } from 'rxjs';
+import { tap, Observable, of, map } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { FbCrudService } from 'src/app/services/fb-crud.service';
 import { Property } from 'src/app/shared/models/property.model';
 import { User } from 'src/app/shared/models/user.model';
+import { CommentComponent } from '../comment/comment.component';
 
 @Component({
   selector: 'app-profile',
@@ -13,32 +15,47 @@ import { User } from 'src/app/shared/models/user.model';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  form: UntypedFormGroup = new UntypedFormGroup({
-    comment: new UntypedFormControl('')
-  });
   auth: boolean | any;
-  user: Observable<User> | null=null;
   id: string | any;
   email: string | any;
   uname: string | any;
   properties: Observable<Property[]> | any;
-  users: Observable<User[]> | any;
+  user: Observable<User> | null=null;
+  userTemp: User | any;
   liked: boolean | any;
   disliked: boolean | any;
   reported: boolean | any;
-  comments: string[] | any;
 
-  constructor(private fs: FbCrudService, private authentication: AuthenticationService, private aroute: ActivatedRoute) { }
+  constructor(private fs: FbCrudService, private authentication: AuthenticationService, private aroute: ActivatedRoute, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     var uroute = this.aroute.snapshot.params;
     this.uname = uroute['username'];
     this.auth = this.authentication.isAuthenticated;
+    this.email = this.authentication.userData;
     this.getUser();
   }
 
   getUser(): void {
-    this.users = this.fs.getOneUser("users", this.uname);
+    this.user = this.fs.getOneUser("users", this.uname);
+
+    this.fs.getUserByName("users", this.uname).pipe(map(users => {
+      return users.map(u => {
+        const usr: User = {
+          id: u.id,
+          userid: u.userid,
+          useremail: u.useremail,
+          username: u.username,
+          like: u.like,
+          dislike: u.dislike,
+          report: u.report,
+          comments: u.comments,
+          savedads: u.savedads
+        }
+        return usr
+      })
+    }))
+    .subscribe(data=>this.userTemp=data);
   }
 
   getUsersProperties(email: string): void {
@@ -66,29 +83,27 @@ export class ProfileComponent implements OnInit {
   }
 
   addReport(param: string, report: number): void {
-    if (this.disliked == true) {
+    if (this.reported == true) {
       this.fs.updateReport("users", param, report-1)
-      this.disliked = false;
+      this.reported = false;
     } else {
       this.fs.updateReport("users", param, report+1)
-      this.disliked = true;
+      this.reported = true;
     }
   }
 
-  addComment(param: string): void {
-    //TODO
-    /*this.user = this.fs.getOne("users", param).subscribe((value: any[]) => {
-      let jobs: any[] = value;
-      console.log(jobs);
-      console.log(jobs.length);
-    });*/
-    console.log(this.user);
-    console.log(this.form.value.comment);
-    this.comments = [];
-    this.comments.push(this.form.value.comment);
-    //console.log(this.comments);
-    //this.comments.push("ez is");
-    this.fs.updateComment("users", "AKubQGhhsGuuBJnOBvDx", this.comments);
-  }
+  addComment(id: string): void {
+    let array: string[] = [];
 
+    this.userTemp[0].comments.forEach((element: string) => {
+      array.push(element);
+    });
+
+    const dialogR = this.dialog.open(CommentComponent, {});
+    dialogR.afterClosed().subscribe(result => {
+      if (result) {
+        array.push(result.comment);
+        this.fs.updateComment("users", id, array);
+      }});
+  }
 }

@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AddComponent } from './add.component';
+import { CommentComponent } from './comment.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatRadioModule} from '@angular/material/radio';
-import { MatCardModule } from '@angular/material/card';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 
 @NgModule({
   declarations: [
-    AddComponent
+    CommentComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +22,7 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatButtonModule,
     MatDialogModule,
-    MatRadioModule,
-  ], exports: [AddComponent]
+    MatRadioModule
+  ]
 })
-export class AddModule { }
+export class CommentModule { }

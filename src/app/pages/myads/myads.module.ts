@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MyadsComponent } from './myads.component';
 import { MatTableModule } from '@angular/material/table';
 import { MyadsRoutingModule } from './myads-routing.module';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -12,7 +14,9 @@ import { MyadsRoutingModule } from './myads-routing.module';
   imports: [
     CommonModule,
     MyadsRoutingModule,
-    MatTableModule
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule
   ], exports: [MyadsComponent]
 })
 export class MyadsModule { }

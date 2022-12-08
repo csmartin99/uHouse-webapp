@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { map, Observable } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { FbCrudService } from 'src/app/services/fb-crud.service';
@@ -10,6 +11,8 @@ import { Property } from 'src/app/shared/models/property.model';
   styleUrls: ['./myads.component.scss']
 })
 export class MyadsComponent implements OnInit {
+  columnNames = ["name","address","price","area","rooms","created","edit","status"];
+  dataSource = new MatTableDataSource<Property>();
   properties: Observable<Property[]> | any;
   userid: string | any;
   @Input() property?: Property;
@@ -24,6 +27,10 @@ export class MyadsComponent implements OnInit {
     if(this.userid) {
       this.properties = this.fs.get("properties").pipe(map(props => props.filter(prop => prop.seller == this.authentication.userData)));
     }
+  }
+
+  hideListing(id: string, hidden: string): void {
+    this.fs.updateHidden("properties", id, hidden);
   }
 
 }

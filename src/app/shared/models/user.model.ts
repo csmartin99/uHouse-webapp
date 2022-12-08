@@ -6,6 +6,7 @@ export interface User {
     like: number;
     dislike: number;
     report: number;
-    comments?: string[];
+    comments: string[];
+    savedads: string[];
   }
   
