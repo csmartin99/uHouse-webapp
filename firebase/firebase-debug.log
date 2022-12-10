@@ -1,0 +1,37 @@
+[debug] [2022-12-10T17:54:40.716Z] ----------------------------------------------------------------------
+[debug] [2022-12-10T17:54:40.722Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\csajb\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-12-10T17:54:40.724Z] CLI Version:   11.17.0
+[debug] [2022-12-10T17:54:40.725Z] Platform:      win32
+[debug] [2022-12-10T17:54:40.725Z] Node Version:  v16.14.0
+[debug] [2022-12-10T17:54:40.728Z] Time:          Sat Dec 10 2022 18:54:40 GMT+0100 (Central European Standard Time)
+[debug] [2022-12-10T17:54:40.728Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-10T17:54:40.926Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-10T17:54:40.927Z] > authorizing via signed-in user (csajbok.martin2@gmail.com)
+[debug] [2022-12-10T17:54:40.927Z] [iam] checking project uhouse-eaf33 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-12-10T17:54:40.931Z] > refreshing access token with scopes: []
+[debug] [2022-12-10T17:54:40.936Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-12-10T17:54:40.936Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-12-10T17:54:41.111Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2022-12-10T17:54:41.112Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-12-10T17:54:41.112Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/uhouse-eaf33:testIamPermissions [none]
+[debug] [2022-12-10T17:54:41.112Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/uhouse-eaf33:testIamPermissions x-goog-quota-user=projects/uhouse-eaf33
+[debug] [2022-12-10T17:54:41.113Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/uhouse-eaf33:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-10T17:54:41.903Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/uhouse-eaf33:testIamPermissions 401
+[debug] [2022-12-10T17:54:41.903Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/uhouse-eaf33:testIamPermissions {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"ACCESS_TOKEN_TYPE_UNSUPPORTED","metadata":{"method":"google.cloudresourcemanager.v1.Projects.TestIamPermissions","service":"cloudresourcemanager.googleapis.com"}}]}}
+[debug] [2022-12-10T17:54:41.905Z] [iam] error while checking permissions, command may fail: FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2022-12-10T17:54:41.906Z] > refreshing access token with scopes: []
+[debug] [2022-12-10T17:54:41.907Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-12-10T17:54:41.907Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-12-10T17:54:41.996Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2022-12-10T17:54:41.997Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-12-10T17:54:41.998Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/uhouse-eaf33 [none]
+[debug] [2022-12-10T17:54:42.089Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/uhouse-eaf33 401
+[debug] [2022-12-10T17:54:42.089Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/uhouse-eaf33 {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2022-12-10T17:54:42.090Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2022-12-10T17:54:42.173Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at responseToError (C:\Users\csajb\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\csajb\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:288:77)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project uhouse-eaf33. Please make sure the project exists and your account has permission to access it.

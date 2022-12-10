@@ -1,0 +1,25 @@
+.chooseoption{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: auto;
+  width: 50%;
+}
+
+mat-card {
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex: 1;
+  margin: 10px;
+  margin-top: 50px;
+  height: 60px;
+}
+
+h1 {
+  text-align: center;
+}

@@ -1,0 +1,22 @@
+table {
+    width: 70%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 500px;
+    margin: auto;
+}
+
+th.mat-header-cell {
+    text-align: left;
+    max-width: 300px;
+}
+
+.hide{
+    background-color: gray;
+    transition-duration: 0.2s;
+}
+
+.unhide{
+    background-color: white;
+    transition-duration: 0.2s;
+}

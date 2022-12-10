@@ -1,0 +1,19 @@
+<mat-card *ngIf="user | async as u">
+    <p>Felhasználónév: {{u.username}}</p>
+    <p>Elérhetőség: {{u.useremail}}</p>
+    <button [disabled]="auth" mat-button><mat-icon>thumb_up</mat-icon> {{u.like}}</button>
+    <button [disabled]="auth" mat-button><mat-icon>thumb_down</mat-icon> {{u.dislike}}</button>
+    <button [disabled]="auth" mat-button><mat-icon>report</mat-icon> {{u.report}}</button>
+    <button mat-button (click)="getUsersProperties()">Felhasználó hirdetései</button>
+    <button [disabled]="auth" mat-button>Véleményezés</button>
+    <button mat-button [routerLink]="['/home/property']">Vissza</button>
+    <p>Más felhasználók anoním véleményei:</p>
+    <div *ngFor="let comm of u.comments">
+        <hr>
+        <p>{{comm}}</p>
+    </div>
+</mat-card>
+<span class="container">
+    <app-card *ngFor="let property of properties | async" [property]="property" ng-class="mat-elevation-z6" 
+    ng-mouseenter="mat-elevation-z6 = true" ng-mouseleave="mat-elevation-z6 = false"></app-card>
+</span>

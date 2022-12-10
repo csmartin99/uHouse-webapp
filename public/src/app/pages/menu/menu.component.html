@@ -1,0 +1,34 @@
+<mat-toolbar class="mat-elevation-z6 sticky" color="primary">
+  <span id="title" [routerLink]="[ '/home/startscreen']">uHouse</span>
+  <button mat-button [routerLink]="[ '/home/property']">
+    <mat-icon>house</mat-icon>
+    <span>Hirdetések</span>
+  </button>
+  <button mat-button (click)="showDialog()">
+    <mat-icon>add</mat-icon>
+    <span>Hirdetés hozzáadása</span>
+  </button>
+  <span class="menuright"></span>
+  <button mat-button [matMenuTriggerFor]="belowMenu">
+    <span>{{useremail}}</span>
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #belowMenu="matMenu" yPosition="below">
+    <button mat-menu-item [routerLink]="[ '/home/myprofile']">
+      <mat-icon>person</mat-icon>
+      <span>Profil</span>
+    </button>
+    <button mat-menu-item [routerLink]="[ '/home/myads']">
+      <mat-icon>list</mat-icon>
+      <span>Hirdetéseim</span>
+    </button>
+    <button mat-menu-item [routerLink]="[ '/home/savedads']">
+      <mat-icon>folder</mat-icon>
+      <span>Mentett hirdetések</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>arrow_back</mat-icon>
+      <span>Kijelentkezés</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

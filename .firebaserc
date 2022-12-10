@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "uhouse-eaf33"
-  }
+    "default": "uhouse-ideiglenes",
+    "uhouse-final": "uhouse-ideiglenes"
+  },
+  "targets": {},
+  "etags": {}
 }

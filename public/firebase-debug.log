@@ -1,0 +1,45 @@
+[debug] [2022-12-10T17:56:10.782Z] ----------------------------------------------------------------------
+[debug] [2022-12-10T17:56:10.786Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\csajb\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-12-10T17:56:10.788Z] CLI Version:   11.17.0
+[debug] [2022-12-10T17:56:10.788Z] Platform:      win32
+[debug] [2022-12-10T17:56:10.788Z] Node Version:  v16.14.0
+[debug] [2022-12-10T17:56:10.790Z] Time:          Sat Dec 10 2022 18:56:10 GMT+0100 (Central European Standard Time)
+[debug] [2022-12-10T17:56:10.791Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-10T17:56:10.979Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-10T17:56:10.980Z] > authorizing via signed-in user (csajbok.martin2@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Szakdoga\uHouse-webapp-1
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-12-10T17:56:14.502Z] Using project from CLI flag: uhouse-eaf33
+[debug] [2022-12-10T17:56:14.510Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/uhouse-eaf33 [none]
+[debug] [2022-12-10T17:56:14.838Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/uhouse-eaf33 200
+[debug] [2022-12-10T17:56:14.838Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/uhouse-eaf33 {"projectId":"uhouse-eaf33","projectNumber":"726232112665","displayName":"uHouse","name":"projects/uhouse-eaf33","resources":{"hostingSite":"uhouse-eaf33","storageBucket":"uhouse-eaf33.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_6366e49f-bd36-47dc-94d5-3868799f273b"}
+[info] i  Using project uhouse-eaf33 (uHouse) 
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 

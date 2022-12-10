@@ -1,0 +1,11 @@
+<form [formGroup]="form">
+    <h3>Komment</h3>
+    <mat-form-field class="max-width">
+      <mat-label>Írj véleményt a felhasználóról</mat-label>
+      <textarea matInput formControlName="comment"></textarea>
+    </mat-form-field>
+    <div class="addbtn">
+      <button mat-button (click)="dialogRef.close()">Vissza</button>
+      <button mat-button [mat-dialog-close]="form.value">Hozzászólás</button>
+    </div>
+  </form>  

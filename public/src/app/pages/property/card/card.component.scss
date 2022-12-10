@@ -1,0 +1,10 @@
+img {
+  width: 100%;
+  float: left;
+  object-fit: contain;
+  margin: 0;
+}
+
+mat-card:hover{
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.2);
+}
