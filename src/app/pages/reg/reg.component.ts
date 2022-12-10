@@ -21,7 +21,8 @@ export class RegComponent {
 
   signup(): void {
     if (this.form.valid) {
-      this.authentication.signUp(this.form.value.email, this.form.value.pw).then(result => {this.router.navigateByUrl("/log")});
+      this.authentication.signUp(this.form.value.email, this.form.value.pw)
+      .then(result => {this.router.navigateByUrl("/log")});
       const user: User = {
         id: "",
         userid: "",

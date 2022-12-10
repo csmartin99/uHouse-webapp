@@ -41,7 +41,9 @@ export class PropertyComponent implements OnInit {
 
   searchPrice1Changed(sprice1: string) {
     this.also = sprice1;
-    this.properties = this.fs.get("properties").pipe(map(props => props.filter(prop => prop.price > Number(sprice1))));
+    this.properties = this.fs.get("properties")
+    .pipe(map(props => 
+      props.filter(prop => prop.price > Number(sprice1))));
   }
 
   searchPrice2Changed(sprice2: string) {
@@ -58,7 +60,9 @@ export class PropertyComponent implements OnInit {
   }
 
   searchCityChanged(scity: string) {
-    this.properties = this.fs.get("properties").pipe(map(props => props.filter(prop => prop.address?.toLowerCase().includes(scity.toLowerCase()))));
+    this.properties = this.fs.get("properties")
+    .pipe(map(props => 
+      props.filter(prop => prop.address?.toLowerCase().includes(scity.toLowerCase()))));
   }
 
   searchPremiumChanged(spremium: string) {

@@ -22,7 +22,8 @@ export class LogComponent implements OnInit {
 
   login(): void {
     if (this.form.valid) {
-      this.authentication.signIn(this.form.value.email, this.form.value.pw).then(result => {console.log(result); this.router.navigateByUrl("/home/property")});
+      this.authentication.signIn(this.form.value.email, this.form.value.pw)
+      .then(result => {console.log(result); this.router.navigateByUrl("/home/property")});
     }
   }
 }

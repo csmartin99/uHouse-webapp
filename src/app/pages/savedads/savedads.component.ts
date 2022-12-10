@@ -60,7 +60,8 @@ export class SavedadsComponent implements OnInit {
   getUser(): void {
     this.propList = [];
     this.userTemp[0].savedads.forEach((adid: string) => {
-      this.property = this.fs.get("properties").pipe(map(props => props.filter(prop => prop.id == adid))).subscribe(result => {if (result) {
+      this.property = this.fs.get("properties").pipe(map(props => props.filter(prop => prop.id == adid)))
+      .subscribe(result => {if (result) {
         result.forEach((doc) => {
           if(!this.propList.includes(doc)) {
             this.propList.push(doc);

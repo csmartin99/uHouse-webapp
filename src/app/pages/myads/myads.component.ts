@@ -25,7 +25,8 @@ export class MyadsComponent implements OnInit {
     this.userid = this.authentication.currentUserId;
     console.log(this.userid);
     if(this.userid) {
-      this.properties = this.fs.get("properties").pipe(map(props => props.filter(prop => prop.seller == this.authentication.userData)));
+      this.properties = this.fs.get("properties")
+      .pipe(map(props => props.filter(prop => prop.seller == this.authentication.userData)));
     }
   }
 

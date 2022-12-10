@@ -61,7 +61,8 @@ export class FbCrudService {
   }
 
   getOneUser(collectionName: string, username: string): Observable<User> {
-    var collection = this.fs.collection(collectionName, ref => ref.where("username", "==", username))
+    var collection = this.fs.collection(collectionName, 
+    ref => ref.where("username", "==", username))
     var user = collection.valueChanges()
     .pipe(map(users => {
         const usertemp = users[0];
